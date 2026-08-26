@@ -1,4 +1,4 @@
-sifat13|1313|demo@example.com|01711000000|Sifat|ACTIVE|501142.10
+sifat13|1313|demo@example.com|01711000000|Demo Admin|ACTIVE|501142.10
 nafis01|1234|nafis@example.com|01711000001|Nafis Rahman|ACTIVE|12500
 maya22|1234|maya@example.com|01711000002|Maya Chowdhury|ACTIVE|9800
 arifgamer|1234|arif@example.com|01711000003|Arif Hossain|ACTIVE|15000

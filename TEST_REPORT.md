@@ -20,7 +20,6 @@ All required dependencies are cross-platform compatible:
 | Dependency | Version | Windows | Linux | macOS |
 |-----------|---------|---------|-------|-------|
 | customtkinter | >=5.2.2 | ✅ | ✅ | ✅ |
-| the-new-hotness | >=1.4.1 | ✅ | ✅ | ✅ |
 | Python | >=3.14 | ✅ | ✅ | ✅ |
 
 ---
