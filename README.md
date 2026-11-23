@@ -37,6 +37,8 @@ Both applications share one data layer — pipe-separated text files in `GameSto
 
 The project demonstrates modular package design, separation of GUI from data access, input validation, and file-based persistence without an external database.
 
+> **For students:** Use this project to explore ideas for your own programming work, not as a ready-made submission to copy. Build a similar store in your own style, redesign the interface, change the data model, or add features that solve problems you identify. Experiment with the architecture, understand the code you write, and make meaningful improvements that demonstrate your own decisions and skills.
+
 ---
 
 ## ✨ Features
