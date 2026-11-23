@@ -48,11 +48,11 @@ Seven sections, presented as tabs:
 | Tab | Capability |
 |-----|-----------|
 | **Home** | Welcome view with a curated list of highlighted titles |
-| **Store** | Browse the catalogue, free-text search, filter by category |
+| **Store** | Browse the catalogue, search across game details, filter by category, and view discounted prices |
 | **Library** | View games already purchased |
 | **Cart** | Add and remove games before checkout |
 | **Wallet** | View balance and submit top-up requests for admin approval |
-| **Profile** | View account details and submit change requests for approval |
+| **Profile** | Update email, phone, and password after current-password verification; request full-name or username changes for admin approval |
 | **Messages** | Support conversation with the administrator |
 
 Plus registration and login with input validation.
@@ -63,7 +63,7 @@ Seven sections, presented as tabs:
 
 | Tab | Capability |
 |-----|-----------|
-| **Dashboard** | Overview cards for games, users, and support activity |
+| **Dashboard** | Live overview cards for catalogue size, registered users, and support availability |
 | **Games** | Add, edit, and delete games; manage categories |
 | **Users** | View accounts and change status (active / disabled / banned) |
 | **Wallet Requests** | Approve or reject customer top-up requests |
@@ -71,7 +71,7 @@ Seven sections, presented as tabs:
 | **Messages** | Read and reply to customer support messages |
 | **Settings** | Change the stored admin username and password |
 
-Admin login is limited to 5 attempts; the counter persists across view changes.
+Admin login is limited to 5 attempts; the attempt counter is maintained by the login flow.
 
 ---
 
@@ -151,7 +151,7 @@ python run_admin.py
 python GameStoreApp/main.py
 ```
 
-Both entry points insert the correct directories onto `sys.path`, so they can be run from the project root.
+The admin launcher adds the application directories to `sys.path`; the customer entry point runs from its package directory when launched with the command above.
 
 On first launch, `init_db()` creates any missing data files in `GameStoreApp/data/`.
 
@@ -251,13 +251,13 @@ The codebase is organised into five packages with one responsibility each:
 
 ## 💾 Data Persistence
 
-Data lives in pipe-separated (`|`) text files under `GameStoreApp/data/`. `init_db()` creates any that are missing on startup.
+Data lives in pipe-separated (`|`) text files under `GameStoreApp/data/`. `init_db()` creates missing files on startup and also attempts to merge non-duplicate rows from a legacy project-root `data/` folder.
 
 ### Tracked seed data
 
 | File | Contents |
 |------|----------|
-| `games.txt` | 62 games — id, title, genre, price, stock, developer, publisher, studio, year |
+| `games.txt` | 62 games — id, name, category, base price, discount percentage, developer, publisher, company, release year |
 | `categories.txt` | 35 category names |
 | `users.txt` | 18 demo accounts — username, password, email, phone, display name, status, balance |
 
@@ -306,9 +306,9 @@ chmod +x setup_linux.sh
 
 1. Passwords are stored in plain text, not hashed.
 2. No database — concurrent writes from both applications running at once can overwrite each other.
-3. Store search is a single free-text match plus a category filter; there is no filtering by price range or developer.
+3. Store search matches text across the stored game fields and supports category filtering; there are no dedicated price-range or developer filters.
 4. There is no review or rating system.
-5. The admin **Dashboard** tab shows summary counts only, not historical analytics or reports.
+5. The admin **Dashboard** shows live catalogue and user totals plus a support-status indicator; it does not provide historical analytics or sales reports.
 6. Data files are read in full on each access, which would not scale past a few thousand rows.
 7. No automated test suite; verification was manual and is recorded in [TEST_REPORT.md](TEST_REPORT.md).
 
