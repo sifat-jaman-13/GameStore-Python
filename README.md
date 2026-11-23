@@ -353,4 +353,4 @@ North South University, Department of Electrical and Computer Engineering
 
 ## 📜 License
 
-This project is available under a **proprietary non-commercial use licence**. Individual personal and educational use is permitted under the terms in [LICENSE](LICENSE). Commercial or organisational use requires prior written permission.
+This project is available under a **proprietary non-commercial use licence**. Individual personal and educational use is permitted under the terms in [LICENSE](LICENSE). Commercial or organisational use requires prior written permission. Students are encouraged to study the project, take inspiration from it, and build a similar or improved application with their own design, code, and ideas rather than copying it wholesale.
